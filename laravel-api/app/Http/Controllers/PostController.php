@@ -23,15 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        // return view('posts.create');
-
-        Post::create([
-            'image' => 'lorem.png',
-            'title' => 'Lorem Ipsume',
-            'content' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, quisquam ad temporibus vero, illo qui repellendus vitae in tempore odit perferendis. Veniam perspiciatis exercitationem odit quaerat nulla at, vel deserunt?"
-        ]);
-
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return view('posts.create');
     }
 
     /**
@@ -40,7 +32,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'image' => 'required|image|mimes:jpeg,jpg,png|max:5120',
             'title' => 'required|min:5',
             'content' => 'required|min:10'
         ]);
